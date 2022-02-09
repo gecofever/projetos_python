@@ -1,0 +1,7 @@
+1010;Germano Nascimento;10500.0
+1020;Gabriel Santos;1850.0
+1030;Giovana Barros;6211.0
+1040;Marina Nascimento;4385.0
+1050;Nelma das Graças;18000.0
+1060;Eli Oliveira;6900.0
+1070;Alfredo Dias;628.2
