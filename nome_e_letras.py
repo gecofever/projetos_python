@@ -1,0 +1,6 @@
+numero = int (input ('Digite um numero entre 0 e 9999: '))
+print(f'Seu numero é {numero}')
+#print(f'Maiuscula: {nome.upper()}')
+#print(f'Minuscula: {nome.lower()}')
+#print('Seu nome tem {} letras'.format(len(nome) - nome.count(' ')))
+#print('Seu primeiro nome tem {} letras'.format(nome.find(' ')))
