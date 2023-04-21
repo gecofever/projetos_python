@@ -1,0 +1,57 @@
+from datetime import date
+
+hoje = date.today()
+
+# Armazenamento dos cadastros
+cadastro = [[1, 'Paulo', 'Pereira', '45847462512', '16/01/1938'], [2, 'João', 'Guedes', '56321489941', '16/01/2023'], [3, 'Eli', 'Oliveira', '23410158911', '10/01/2022']]
+
+print(cadastro)
+print('')
+
+# Função para verificar se o ano é bissexto
+def bissexto(ano):
+  if ano % 4 == 0 and (ano % 100 != 0 or ano % 400 == 0):
+    return True
+  else:
+    return False
+
+# Função para realizar o calculo da quantidade de dias
+def calculo_dias(nascimento):
+  hoje = date.today()
+  dia_atual = hoje.day
+  mes_atual = hoje.month
+  ano_atual = hoje.year
+
+  dia_nascimento = int(nascimento[:2])
+  mes_nascimento = int(nascimento[3:5])
+  ano_nascimento = int(nascimento[6:10])
+
+  ano_bissexto = sum(bissexto(ano) for ano in range(ano_nascimento, ano_atual))
+
+  idade_dias = (ano_atual - ano_nascimento) * 365 + ano_bissexto
+
+  for mes in range(mes_nascimento, mes_atual):
+    if mes in [1, 3, 5, 7, 8, 10, 12]:
+      idade_dias = idade_dias + 31
+    elif mes == 2:
+      if bissexto(ano_atual):
+        idade_dias = idade_dias + 29
+      else:
+        idade_dias = idade_dias + 28
+    else:
+      idade_dias = idade_dias + 30
+
+  idade_dias = idade_dias + dia_atual - dia_nascimento
+
+  return idade_dias
+
+for pessoa in cadastro:
+  id = pessoa[0]
+  nome = pessoa[1] +' '+ pessoa[2]
+  cpf = pessoa[3]
+  nascimento = pessoa[4]
+  idade_dias = calculo_dias(nascimento)
+  pessoa.append(idade_dias)
+  print(f'ID: {id}, Nome: {nome}, CPF: {cpf}, Data nascimento: {nascimento}, Idade em dias: {idade_dias}')
+
+print('')
