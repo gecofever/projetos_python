@@ -1,0 +1,28 @@
+# Armazenamento dos cadastros
+cadastro = [[1, 'Paulo', 'Pereira', '45847462512', '16/01/1938'], [2, 'João', 'Guedes', '56321489941', '16/01/2023'], [3, 'Eli', 'Oliveira', '23410158911', '10/01/2022']]
+
+# Imprime na tela a lista de Cadastros
+print(cadastro)
+print('') 
+
+# Função para troca de sobrenomes entre IDs
+def trocar_sobrenome(id1, id2):
+  sobrenome1 = None
+  sobrenome2 = None
+  for cad in cadastro:
+    if cad[0] == id1:
+      sobrenome1 = cad
+    elif cad[0] == id2:
+      sobrenome2 = cad
+
+  sobrenome_1 = sobrenome1[2]
+  sobrenome_2 = sobrenome2[2]
+  sobrenome1[2] = sobrenome_2
+  sobrenome2[2] = sobrenome_1
+  print('Sobrenomes trocados')
+
+id1 = int(input('Informe o primeiro ID: '))
+id2 = int(input('Informe o segundo ID: '))
+
+trocar_sobrenome(id1, id2)
+print(cadastro)
